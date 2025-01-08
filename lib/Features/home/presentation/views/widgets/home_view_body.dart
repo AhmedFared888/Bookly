@@ -1,5 +1,6 @@
+import 'package:bookly/Core/utils/styles.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/custom_app_bar.dart';
-import 'package:bookly/Features/home/presentation/views/widgets/custom_list_view_item.dart';
+import 'package:bookly/Features/home/presentation/views/widgets/featuted_List_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -8,33 +9,21 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomAppBar(),
         FeaturedBooksListView(),
-      ],
-    );
-  }
-}
-
-class FeaturedBooksListView extends StatelessWidget {
-  const FeaturedBooksListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .3,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: CustomListViewItem(),
-            );
-          },
+        SizedBox(
+          height: 50.0,
         ),
-      ),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+          child: Text(
+            'Best Seller',
+            style: Styles.titleMedium,
+          ),
+        )
+      ],
     );
   }
 }
