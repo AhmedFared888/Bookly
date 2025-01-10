@@ -13,21 +13,21 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomAppBar(),
-        FeaturedBooksListView(),
-        SizedBox(
+        const CustomAppBar(),
+        const FeaturedBooksListView(),
+        const SizedBox(
           height: 50.0,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
           child: Text(
             'Best Seller',
-            style: Styles.titleMedium.copyWith(
+            style: Styles.textStyle18.copyWith(
               fontFamily: kGtSectraFine,
             ),
           ),
         ),
-        BestSellerListViewItem(),
+        const BestSellerListViewItem(),
       ],
     );
   }
