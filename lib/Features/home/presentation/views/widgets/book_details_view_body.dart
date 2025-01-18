@@ -28,7 +28,10 @@ class BookDetailsViewBody extends StatelessWidget {
                         Padding(
                           padding:
                               EdgeInsets.symmetric(horizontal: width * .16),
-                          child: const CustomBookImage(),
+                          child: const CustomBookImage(
+                            imageUrl:
+                                'https://media.istockphoto.com/id/2065674519/photo/rolling-says-macro.jpg?s=1024x1024&w=is&k=20&c=ZRzdKZTGsNQqzQ4HpvVsrWT1BL9NjKmB76pIteut-xs=',
+                          ),
                         ),
                         const SizedBox(
                           height: 43,
