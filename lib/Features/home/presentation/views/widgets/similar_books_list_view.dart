@@ -1,9 +1,11 @@
+import 'package:bookly/Core/utils/app_router.dart';
 import 'package:bookly/Core/widget/custom_error_widget.dart';
 import 'package:bookly/Core/widget/custom_loading_indicator.dart';
 import 'package:bookly/Features/home/presentation/manager/similer_books_cubit/similer_books_cubit.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/Custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SimilarBooksListView extends StatelessWidget {
   const SimilarBooksListView({super.key});
@@ -20,13 +22,21 @@ class SimilarBooksListView extends StatelessWidget {
                 top: 8.0,
               ),
               child: ListView.builder(
+                itemCount: state.books.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.0),
-                    child: CustomBookImage(
-                      imageUrl:
-                          'https://media.istockphoto.com/id/2065674519/photo/rolling-says-macro.jpg?s=1024x1024&w=is&k=20&c=ZRzdKZTGsNQqzQ4HpvVsrWT1BL9NjKmB76pIteut-xs=',
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                            extra: state.books[index]);
+                      },
+                      child: CustomBookImage(
+                        imageUrl: state.books[index].volumeInfo.imageLinks
+                                ?.thumbnail ??
+                            '',
+                      ),
                     ),
                   );
                 },

@@ -1,4 +1,5 @@
 import 'package:bookly/Core/utils/styles.dart';
+import 'package:bookly/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/books_action.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
@@ -7,8 +8,10 @@ import 'package:bookly/Features/home/presentation/views/widgets/similar_books_li
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody(
+      {super.key, required this.bookModel, required this.book});
+  final BookModel bookModel;
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -28,46 +31,44 @@ class BookDetailsViewBody extends StatelessWidget {
                         Padding(
                           padding:
                               EdgeInsets.symmetric(horizontal: width * .16),
-                          child: const CustomBookImage(
-                            imageUrl:
-                                'https://media.istockphoto.com/id/2065674519/photo/rolling-says-macro.jpg?s=1024x1024&w=is&k=20&c=ZRzdKZTGsNQqzQ4HpvVsrWT1BL9NjKmB76pIteut-xs=',
+                          child: CustomBookImage(
+                            imageUrl: book.volumeInfo.imageLinks.thumbnail,
                           ),
                         ),
                         const SizedBox(
-                          height: 43,
+                          height: 20,
                         ),
                         Text(
-                          'The Jungle Book',
+                          book.volumeInfo.title!,
                           style: Styles.textStyle30
                               .copyWith(fontWeight: FontWeight.w600),
+                          textAlign: TextAlign.center,
                         ),
                         const SizedBox(
-                          height: 4,
+                          height: 2,
                         ),
                         Opacity(
                           opacity: .7,
-                          child: Text(
-                            'Rudyard Kipling',
-                            style: Styles.textStyle18.copyWith(
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
+                          child: Text(book.volumeInfo.authors![0],
+                              style: Styles.textStyle18.copyWith(
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.w500,
+                              )),
                         ),
                         const SizedBox(
-                          height: 14,
+                          height: 12,
                         ),
-                        const BookRating(
-                          reting: 5,
-                          count: 5,
+                        BookRating(
+                          reting: book.volumeInfo.averageRating ?? 0,
+                          count: book.volumeInfo.ratingsCount ?? 0,
                           mainAxisAlignment: MainAxisAlignment.center,
                         ),
                         const SizedBox(
-                          height: 40,
+                          height: 30,
                         ),
                         const BooksActions(),
                         const SizedBox(
-                          height: 50.0,
+                          height: 30.0,
                         ),
                         Align(
                           alignment: Alignment.centerLeft,

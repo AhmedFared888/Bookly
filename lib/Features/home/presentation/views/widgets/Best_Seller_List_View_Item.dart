@@ -1,5 +1,4 @@
 import 'package:bookly/Core/utils/app_router.dart';
-import 'package:bookly/Core/utils/assets.dart';
 import 'package:bookly/Core/utils/styles.dart';
 import 'package:bookly/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/Custom_book_image.dart';
