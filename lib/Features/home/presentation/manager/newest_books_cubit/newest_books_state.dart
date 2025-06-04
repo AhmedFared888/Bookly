@@ -1,6 +1,6 @@
 part of 'newest_books_cubit.dart';
 
-sealed class NewestBooksState extends Equatable {
+abstract class NewestBooksState extends Equatable {
   const NewestBooksState();
 
   @override

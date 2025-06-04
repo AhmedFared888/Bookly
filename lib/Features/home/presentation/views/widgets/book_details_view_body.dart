@@ -1,9 +1,9 @@
 import 'package:bookly/Core/utils/styles.dart';
 import 'package:bookly/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/Features/home/presentation/views/widgets/Custom_book_image.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/books_action.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
-import 'package:bookly/Features/home/presentation/views/widgets/Custom_book_image.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -40,12 +40,14 @@ class BookDetailsViewBody extends StatelessWidget {
                         ),
                         Text(
                           book.volumeInfo.title!,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: Styles.textStyle30
                               .copyWith(fontWeight: FontWeight.w600),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(
-                          height: 2,
+                          height: 10,
                         ),
                         Opacity(
                           opacity: .7,
@@ -56,7 +58,7 @@ class BookDetailsViewBody extends StatelessWidget {
                               )),
                         ),
                         const SizedBox(
-                          height: 12,
+                          height: 15,
                         ),
                         BookRating(
                           reting: book.volumeInfo.averageRating ?? 0,

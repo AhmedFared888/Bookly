@@ -1,6 +1,6 @@
 part of 'similer_books_cubit.dart';
 
-sealed class SimilerBooksState extends Equatable {
+abstract class SimilerBooksState extends Equatable {
   const SimilerBooksState();
 
   @override
