@@ -4,9 +4,10 @@
 
 ## 📸 Screenshots
 
-![home view](https://github.com/user-attachments/assets/5a0e1535-d417-4347-a765-8bda56d14a0b)
-![book details view](https://github.com/user-attachments/assets/8a0cc4bb-3038-470f-846d-588c799160f8)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5a0e1535-d417-4347-a765-8bda56d14a0b" alt="Home View" width="250"/>
+  <img src="https://github.com/user-attachments/assets/8a0cc4bb-3038-470f-846d-588c799160f8" alt="Book Details View" width="250"/>
+</p>
 
 ## 🚀 Features
 
